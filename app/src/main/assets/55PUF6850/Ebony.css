@@ -1,0 +1,526 @@
+/* Ebony */
+<STYLE TYPE="text/css">
+
+
+		p.title-chapter {
+					font-family: "SimHei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 24pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: -1.35em;
+					text-align: left;
+					
+					margin: 0em 0em 0.81em 1.35em;
+			}
+			p.paragraph {
+	font-family: "Noto Sans S Chinese Light";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16pt;
+	text-decoration: none;
+	font-variant: normal;
+	text-indent: 0em;
+	text-align: left;
+	
+	margin: 0pt 0pt 6pt 0pt;
+			}
+			p.basic-paragraph {
+	font-family: "Noto Sans S Chinese DemiLight";
+	font-weight: bold;
+	font-style: normal;
+	font-size: 22pt;
+	text-decoration: none;
+	font-variant: normal;
+	text-indent: 0em;
+	text-align: left;
+	
+	margin: 0pt 0pt 6pt 0pt;
+			}
+			p.image {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 16pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0.63em 0em;
+			}
+			p.image-override {
+					margin: 0.63em 0em 0.94em 0em;
+			}
+			p.title-text-heading-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: 12pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0em;
+			}
+			p.title-text-heading-title-paragraph {
+					font-family: "SimHei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 1.29em 0em 0.52em 0em;
+			}
+			p.title-paragraph {
+					font-family: "STXihei";
+					font-weight: bold;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 1.29em 0em 0.52em 0em;
+			}
+			li.dashlist-item-paragraph {
+	font-family: "Noto Sans S Chinese Light";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16pt;
+	text-decoration: none;
+	font-variant: normal;
+	text-indent: 0pt;
+	text-align: left;
+	
+	margin: 0pt 8pt 4pt 0pt;
+			}
+			li.dashlist-item-last {
+	font-family: "Noto Sans S Chinese Light";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16pt;
+	text-decoration: none;
+	font-variant: normal;
+	text-indent: 0pt;
+	text-align: left;
+	
+	margin: 0pt 8pt 20pt 0pt;
+			}
+			li.dashlist-item-indent-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 24pt;
+					text-align: left;
+					
+					margin: 0pt 8pt 4pt 0pt;
+			}
+			p.dashlist-item-next-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: -1.70em;
+					text-align: left;
+					
+					margin: 0em 0em 0em 3.40em;
+			}
+			p.title-heading-title-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 1.21em 0em 0.40em 0em;
+			}
+			p.title-heading-title-paragraph-override {
+			}
+			li.numberlist-item {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: -1.70em;
+					text-align: left;
+					
+					margin: 0.57em 0em 0em 1.70em;
+			}
+			li.numberlist-item-next {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: -1.70em;
+					text-align: left;
+					
+					margin: 0.57em 0em 0em 1.70em;
+			}
+			li.dashlist-item-paragraph-override {
+					text-indent: -1.90em;
+					margin: 0em 0em 0em 3.60em;
+			}
+			p.basic-paragraph-override-1 {
+					text-align: center;
+			}
+			p.tips-caption-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 16pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0.28em 0em;
+			}
+			p.tips-one {
+	font-family: Noto Sans S Chinese Light;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 016pt;
+	text-decoration: none;
+	font-variant: normal;
+	text-indent: 0em;
+	text-align: left;
+	
+	margin: 0em;
+			}
+			li.numberlist-item-next-paragraph-override {
+			}
+			p.cautions-caption-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 016pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0.28em 0em;
+		
+			}
+			li.resultlist-item-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 18pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0pt;
+					text-align: left;
+					list-style-type: none;
+					
+					margin: 0pt 16pt 4pt 0pt;
+			}
+			li.dashlist-item-paragraph-override-1 {
+			}
+			p.actionlist-item-paragraph {
+	font-family: "Noto Sans S Chinese Light";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16pt;
+	text-decoration: none;
+	font-variant: normal;
+	text-indent: 0em;
+	text-align: left;
+	
+	margin: 0.28em 0em 0em 0em;
+			}
+			p.actionlist-item-indent-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 16pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 16pt;
+					text-align: left;
+					
+					margin: 0.28em 0em 0em 0em;
+			}
+			p.actionlist-item-paragraph-override {
+					margin: 0.20em 0em 0em 0em;
+			}
+			p.title-text-heading-title-paragraph-override {
+					margin: 1.67em 0em 0.67em 0em;
+			}
+			p.title-chapter-title-paragraph-override {
+					margin: 0em 0em 0.40em 1.35em;
+			}
+			
+			p.heading-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 16pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0em 0em 0.28em 0em;
+			}
+			li.dashlist-item-indent-paragraph-override {
+			}
+			li.dashlist-item-paragraph-override-2 {
+					margin: 0em 0em 0em 4.54em;
+			}
+			li.dashlist-item-paragraph-override-3 {
+					margin: 0em 0em 0em 3.40em;
+			}
+			p.title-text-heading-title-paragraph-override-1 {
+					margin: 1.03em 0em 0.52em 0em;
+			}
+			p.paragraph-override-1 {
+			}
+			p.heading-paragraph-override {
+			}
+			li.resultlist-item-paragraph-override {
+			}
+			p.title-text-heading-paragraph-override {
+			}
+			p.title-text-heading-title-paragraph-override-2 {
+			}
+			p.tips-one-paragraph-override {
+			}
+			p.title-text-heading-title-paragraph-override-3 {
+					margin: 0.77em 0em 0.52em 0em;
+			}
+			li.dashlist-item-paragraph-override-4 {
+					text-indent: -5em;
+					margin: 0em 0em 0em 3.78em;
+			}
+			p.actionlist-item-paragraph-override-1 {
+					text-indent: -1.21em;
+					margin: 0.20em 0em 0em 1.21em;
+			}
+			li.dashlist-item-paragraph-override-5 {
+					text-indent: -1.68em;
+					margin: 0em 0em 0em 3.37em;
+			}
+			p.title-heading-title-paragraph-override-1 {
+					margin: 1.20em 0em 0.40em 0em;
+			}
+			p.title-text-heading-title-paragraph-override-4 {
+					margin: 0.52em 0em;
+			}
+			p.actionlist-item-paragraph-override-3 {
+					margin: 0.40em 0em 0em 0em;
+			}
+			p.title-text-heading-title-paragraph-override-5 {
+					margin: 1.02em 0em 0.52em 0em;
+			}
+			li.dashlist-item-paragraph-override-6 {
+					text-indent: -1.72em;
+					margin: 0em 0em 0em 3.44em;
+			}
+			p.heading-paragraph-override-1 {
+					margin: 0em 0em 0.31em 0em;
+			}
+			li.resultlist-item-paragraph-override-1 {
+					text-indent: -1.57em;
+					margin: 0em 0em 0.31em 3.62em;
+			}
+			p.paragraph-override-2 {
+					margin: 0.57em 0em 0.28em 0em;
+			}
+			p.actionlist-item-paragraph-override-4 {
+					margin: 0.77em 0em 0em 0em;
+			}
+			p.actionlist-item-paragraph-override-5 {
+					margin: 0.26em 0em 0em 0em;
+			}
+			p.image-override-1 {
+					margin: 0.52em 0em;
+			}
+			p.title-chapter-title-paragraph-override-1 {
+			}
+			li.numberlist-item-next-paragraph-2 {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 16pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0em 0em 0em 1.70em;
+			}
+			li.numberlist-item-paragraph-override {
+			}
+			p.image-override-2 {
+					margin: 0.63em 0em 0.31em 0em;
+			}
+			p.title-text-heading-title-paragraph-override-6 {
+					margin: 1.28em 0em 0.51em 0em;
+			}
+			p.faq-question-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 16pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: 0em;
+					text-align: left;
+					
+					margin: 0em;
+			}
+			li.faq-answerlist-paragraph {
+					font-family: "STXihei";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 016pt;
+					text-decoration: none;
+					font-variant: normal;
+					text-indent: -1.70em;
+					text-align: left;
+					
+					margin: 0em 0em 0em 1.70em;
+			}
+			p.title-text-heading-paragraph-override-1 {
+					margin: 0em 0em 0em 1.70em;
+			}
+			span.no-style-override {
+			}
+			span.no-style-override-1 {
+					font-size: 13pt;
+			}
+			span.bold-c {
+					font-family: "SimHei";
+					font-weight: normal;
+					font-style: normal;
+			}
+			span.bold {
+					font-family: "Gill Sans Alt One WGL";
+					font-weight: normal;
+					font-style: normal;
+			}
+			span.bold-c-override {
+			}
+			span.bold-c-override-1 {
+					font-size: 13pt;
+			}
+			span.bold-c-override-2 {
+					font-size: 13pt;
+			}
+			span.no-style-override-2 {
+					
+			}
+			span.bold-override {
+					font-family: "STXihei";
+			}
+			span.no-style-override-3 {
+					font-size: 13pt;
+			}
+			span.bold-c-override-3 {
+					font-family: "STXihei";
+			}
+			span.wwnbsp {
+			}
+			span.bold-c-override-4 {
+					font-family: "STXihei";
+					font-size: 13pt;
+			}
+			span.no-style-override-4 {
+					font-family: "SimHei";
+			}
+			span.no-style-override-5 {
+					font-family: "SimHei";
+					font-size: 13pt;
+			}
+			span.no-style-override-6 {
+					font-size: 13pt;
+			}
+			span.no-style-override-7 {
+					font-family: "STXihei";
+			}
+			span.no-style-override-8 {
+					font-size: 13pt;
+			}
+			span.bold-c-override-5 {
+					font-size: 13pt;
+			}
+			span.no-style-override-9 {
+					font-size: 13pt;
+			}
+			span.no-style-override-10 {
+					font-family: "Gill Sans Alt One WGL";
+					font-size: 18pt;
+			}
+			span.no-style-override-11 {
+					font-family: "STXihei";
+					font-size: 13pt;
+			}
+			span.no-style-override-12 {
+					font-size: 18pt;
+			}
+			span.no-style-override-13 {
+					font-family: "Gill Sans Alt One WGL";
+					font-size: 18pt;
+			}
+			span.no-style-override-14 {
+					font-size: 18pt;
+			}
+			span.no-style-override-15 {
+					font-family: "Gill Sans Alt One WGL";
+					font-size: 18pt;
+			}
+			span.no-style-override-16 {
+					font-size: 13pt;
+			}
+			span.bold-c-override-6 {
+					font-size: 13pt;
+			}
+			span.no-style-override-17 {
+					font-family: "SimHei";
+					font-size: 13pt;
+			}
+			span.no-style-override-18 {
+					font-family: "STXihei";
+					font-size: 18pt;
+			}
+			span.no-style-override-19 {
+					font-size: 13pt;
+}
+#x2k12-ebony-6520-1 .story ul {
+	
+	font-family: "Noto Sans S Chinese Light";
+	font-size: 16pt;
+}
+#x2k12-ebony-6520-1 .story table tr td .tips-one {
+	
+}
+#x2k12-ebony-6520-1 .story table tr th {
+	
+	font-family: "Noto Sans S Chinese Light";
+	text-align: center;
+}
+#x2k12-ebony-6520-1 .story table {
+	font-family: "Noto Sans S Chinese Light";
+	
+	text-align: left;
+	font-size: 16px;
+}
