@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initAnimation();
-        final WebView webView = (WebView) findViewById(R.id.webView);
-        webView.loadUrl("file:///android_asset/55PUF6850/Connect_your_TV/Connect_antenna/description.html");
+        final WebView bookWebview = (WebView) findViewById(R.id.bookWebview);
+        bookWebview.loadUrl("file:///android_asset/55PUF6850/Connect_your_TV/Connect_antenna/description.html");
         Button button1 = (Button)findViewById(R.id.botton1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webView.startAnimation(mPatOneToTwoAni);
+                bookWebview.startAnimation(mPatOneToTwoAni);
             }
         });
 

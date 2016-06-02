@@ -8,17 +8,100 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/darkgray"
     tools:context="com.example.tony.testwebview.MainActivity">
 
+    <TextView
+        android:id="@+id/root_level_name"
+        android:textSize="@dimen/button_textsize"
+        android:text="目录"
+        android:layout_width="54.0dip"
+        android:layout_height="368.0dip"
+        android:layout_marginTop="0.0dip" />
+    <TextView
+        android:id="@+id/listBookLevelOneName"
+        android:textSize="@dimen/button_textsize"
+        android:text="列表"
+        android:layout_width="54.0dip"
+        android:layout_height="368.0dip"
+        android:layout_marginLeft="34.0dip"
+        android:layout_marginTop="0.0dip" />
+    <ImageView
+        android:id="@+id/bookDividerOne"
+        android:layout_width="1.0dip"
+        android:layout_height="368.0dip"
+        android:layout_marginLeft="54.0dip"
+        android:layout_marginTop="0.0dip"
+        android:src="@drawable/divider" />
+    <ImageView
+        android:id="@+id/bookDividerTwo"
+        android:layout_width="2.0dip"
+        android:layout_height="368.0dip"
+        android:layout_marginLeft="310.0dip"
+        android:layout_marginTop="0.0dip"
+        android:src="@drawable/divider" />
+    <ListView android:id="@+id/root_list"
+        android:layout_width="270.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:listSelector="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@null"
+        android:dividerHeight="@dimen/list_divider_height" />
+    <ListView
+        android:id="@+id/listBookLevelOne"
+        android:scrollbars="none"
+        android:layout_width="270.0dip"
+        android:layout_height="@dimen/list_height"
+        android:layout_marginLeft="319.0dip"
+        android:listSelector="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@null"
+        android:dividerHeight="@dimen/list_divider_height" />
+    <ListView
+        android:id="@+id/listBookLevelTwo"
+        android:focusable="false"
+        android:scrollbars="none"
+        android:layout_width="236.0dip"
+        android:layout_height="@dimen/list_height"
+        android:layout_marginLeft="660.0dip"
+        android:layout_marginTop="@dimen/list_margintop"
+        android:listSelector="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@null"
+        android:dividerHeight="@dimen/list_divider_height" />
+    <ImageView
+        android:id="@+id/webViewBgOfBook"
+        android:background="@drawable/edfu_scroll_bkgnd"
+        android:layout_width="3.0dip"
+        android:layout_height="368.0dip"
+        android:layout_marginLeft="1250.0dip"
+        android:layout_marginTop="0.0dip" />
+    <ImageView
+        android:id="@+id/webViewWhiteBgOfBook"
+        android:background="@drawable/edfu_scroll_bubble"
+        android:layout_width="3.0dip"
+        android:layout_height="25.0dip"
+        android:layout_marginLeft="1250.0dip"
+        android:layout_marginTop="0.0dip" />
 
     <WebView
-        android:id="@+id/webView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/bookWebview"
+        android:focusable="false"
+        android:scrollbars="none"
+        android:b
+        android:layout_width="@dimen/webview_width"
+        android:layout_height="@dimen/list_height"
+        android:layout_marginLeft="330.0dip"
+        android:layout_marginTop="@dimen/list_margintop"
+        android:layerType="software" />
     <Button
-        android:id="@+id/botton1"
-        android:layout_below="@+id/webView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:id="@+id/botton1"
+    android:layout_below="@+id/root_level_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
 
 </RelativeLayout>
