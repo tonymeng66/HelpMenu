@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.tony.testwebview"
-        minSdkVersion 8
+        minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { java.srcDirs = ['src/main/java', 'src/main/java/tools'] } }
 }
 
 dependencies {
