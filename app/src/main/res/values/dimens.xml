@@ -1,7 +1,16 @@
 <resources>
+    <dimen name="root_list_marginLeft">0dp</dimen>
+    <dimen name="divider1_marginLeft">54dp</dimen>
+    <dimen name="list_book1_marginLeft">57dp</dimen>
+    <dimen name="divider2_marginLeft">380dp</dimen>
+    <dimen name="list_book2_marginLeft">383dp</dimen>
+    <dimen name="divider3_marginLeft">16dp</dimen>
+   <dimen name="webView_marginLeft">380dp</dimen>
+
+
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">0dp</dimen>
+    <dimen name="activity_vertical_margin">0dp</dimen>
         <dimen name="toast_y_offset">64.0dip</dimen>
         <dimen name="button_width">160.0dip</dimen>
         <dimen name="button_height">34.0dip</dimen>

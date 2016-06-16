@@ -1,6 +1,5 @@
 package com.example.tony.testwebview;
 
-import android.annotation.TargetApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +8,16 @@ import android.view.animation.TranslateAnimation;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.example.tony.testwebview.helper.HelpList;
+import com.example.tony.testwebview.helper.ListItem;
+import com.example.tony.testwebview.testHelper.ArrayAdapterItem;
+import com.example.tony.testwebview.testHelper.ObjectItem;
 import com.example.tony.testwebview.tools.Constants;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,19 +26,61 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mDivider2;
     private Button mButton1;
     private Button mButton2;
+    private ListView mRootList;
+    private ListView mListBook1;
+    private ListView mListBook2;
+//    private XmicListAdapter mLevelOneAdapter;
+//    private XmicListItemAdapter mLevelTwoAdapter;
+    private ArrayAdapterItem mRootListAdapter;
+    private ArrayAdapterItem mLevelOneAdapter;
+    private ArrayAdapterItem mLevelTwoAdapter;
+    private List<HelpList> bookLists = null;
+    private List<ListItem> itemBooks;
+    private ObjectItem[] mListBook1Data = new ObjectItem[10];
+    private ObjectItem[] mListBook2Data = new ObjectItem[10];
+    private ObjectItem[] mRootListData= new ObjectItem[2];
+
+    static final float ANIMATION_LEFT = -500.0F;
+    static final float ANIMATION_RIGHT = 500.0F;
+    static final long ANIMATION_DURATION = 500L;
+
+    static final int PAT2_DIVIDER1_LEFT_MARGIN = 100;
+    static final int PAT2_DIVIDER2_LEFT_MARGIN = 400;
+    static final int PAT2_LISTBOOK1_LEFT_MARGIN = 103;
+    static final int PAT2_LISTBOOK2_LEFT_MARGIN = 403;
+    static final int PAT2_WEBVIEW_LEFT_MARGIN = 600;
+
+    static final int PAT3_DIVIDER1_LEFT_MARGIN = 0;
+    static final int PAT3_DIVIDER2_LEFT_MARGIN = 100;
+    static final int PAT3_LISTBOOK1_LEFT_MARGIN = 0;
+    static final int PAT3_LISTBOOK2_LEFT_MARGIN = 103;
+    static final int PAT3_WEBVIEW_LEFT_MARGIN = 200;
+
+
+
+
+
     View.OnClickListener buttonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button1:
-                    mBookWebview.startAnimation(mPatTwoToThreeAni);
+                    mRootList.startAnimation(mPatTwoToThreeAni);
                     mDivider1.startAnimation(mPatTwoToThreeAni);
                     mDivider2.startAnimation(mPatTwoToThreeAni);
+                    mListBook1.startAnimation(mPatTwoToThreeAni);
+                    mListBook2.startAnimation(mPatTwoToThreeAni);
+                    mDivider2.startAnimation(mPatTwoToThreeAni);
+                    mBookWebview.startAnimation(mPatTwoToThreeAni);
                     break;
                 case R.id.button2:
-                    mBookWebview.startAnimation(mPatThreeToTwoAni);
+                    mRootList.startAnimation(mPatThreeToTwoAni);
                     mDivider1.startAnimation(mPatThreeToTwoAni);
                     mDivider2.startAnimation(mPatThreeToTwoAni);
+                    mListBook1.startAnimation(mPatThreeToTwoAni);
+                    mListBook2.startAnimation(mPatThreeToTwoAni);
+                    mDivider2.startAnimation(mPatThreeToTwoAni);
+                    mBookWebview.startAnimation(mPatThreeToTwoAni);
                     break;
                 default:
                     break;
@@ -62,15 +110,16 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //            while (true)
 //            {
+                mRootList.setVisibility(View.GONE);
                 mDivider1.setLayoutParams(mPatThreeDeviderOneParams);
                 mDivider2.setLayoutParams(mPatThreeDeviderTwoParams);
 
-//                HelpActivity.this.listViewBookOne.setVisibility(4);
-//                HelpActivity.this.listViewBookTwo.requestFocus();
-//                HelpActivity.this.listViewBookTwo.setLayoutParams(HelpActivity.this.mPatThreeLevelTwoParams);
+                mListBook1.setVisibility(View.GONE);
+                //mListBook2.requestFocus();
+                mListBook2.setLayoutParams(mPatThreeLevelTwoParams);
                 mBookWebview.setVisibility(View.VISIBLE);
                 mBookWebview.setLayoutParams(mPatThreeWebConParams);
-//                HelpActivity.this.loadUrlWithoutFocus(HelpActivity.this.listViewBookTwo.getSelectedItemPosition());
+//                HelpActivity.this.loadUrlWithoutFocus(HelpActivity.this.mListBook2.getSelectedItemPosition());
 //                return;
 //                i = 0;
 //                break;
@@ -91,13 +140,16 @@ public class MainActivity extends AppCompatActivity {
     {
         public void onAnimationEnd(Animation paramAnimation)
         {
+            mRootList.setVisibility(View.VISIBLE);
             mDivider1.setLayoutParams(mPatTwoDeviderOneParams);
-//            HelpActivity.this.listViewBookOne.setVisibility(0);
-//            HelpActivity.this.listViewBookOne.requestFocus();
-//            HelpActivity.this.listViewBookOne.setLayoutParams(HelpActivity.this.mPatTwoLevelOneParams);
             mDivider2.setLayoutParams(mPatTwoDeviderTwoParams);
-//            HelpActivity.this.listViewBookTwo.setLayoutParams(HelpActivity.this.mPatTwoLevelTwoParams);
-            //mBookWebview.setVisibility(View.INVISIBLE);
+            mListBook1.setVisibility(View.VISIBLE);
+            //mListBook1.requestFocus();
+            mListBook1.setLayoutParams(mPatTwoLevelOneParams);
+            mListBook2.setLayoutParams(mPatTwoLevelTwoParams);
+
+//            HelpActivity.this.mListBook2.setLayoutParams(HelpActivity.this.mPatTwoLevelTwoParams);
+            mBookWebview.setVisibility(View.GONE);
             mBookWebview.setLayoutParams(mPatTwoWebConParams);
 //            HelpActivity.this.mWebViewScrollbarBg.setVisibility(4);
 //            HelpActivity.this.mWebViewScrollbarWhiteThumb.setVisibility(4);
@@ -141,35 +193,85 @@ public class MainActivity extends AppCompatActivity {
 
         initAnimation();
         initComponetLp();
+        makeFakeData();
         findViews();
+    }
+
+    private void makeFakeData(){
+
+        mListBook1Data[0] = new ObjectItem(91, "Mercury1");
+        mListBook1Data[1] = new ObjectItem(92, "Watson1");
+        mListBook1Data[2] = new ObjectItem(93, "Nissan1");
+        mListBook1Data[3] = new ObjectItem(94, "Puregold1");
+        mListBook1Data[4] = new ObjectItem(95, "SM1");
+        mListBook1Data[5] = new ObjectItem(96, "7 Eleven1");
+        mListBook1Data[6] = new ObjectItem(97, "Ministop1");
+        mListBook1Data[7] = new ObjectItem(98, "Fat Chicken1");
+        mListBook1Data[8] = new ObjectItem(99, "Master Siomai1");
+        mListBook1Data[9] = new ObjectItem(100, "Mang Inasal1");
+
+        mListBook2Data[0] = new ObjectItem(91, "Mercury2");
+        mListBook2Data[1] = new ObjectItem(92, "Watson2");
+        mListBook2Data[2] = new ObjectItem(93, "Nissan2");
+        mListBook2Data[3] = new ObjectItem(94, "Puregold2");
+        mListBook2Data[4] = new ObjectItem(95, "SM2");
+        mListBook2Data[5] = new ObjectItem(96, "7 Eleven2");
+        mListBook2Data[6] = new ObjectItem(97, "Ministop2");
+        mListBook2Data[7] = new ObjectItem(98, "Fat Chicken2");
+        mListBook2Data[8] = new ObjectItem(99, "Master Siomai2");
+        mListBook2Data[9] = new ObjectItem(100, "Mang Inasal2");
+
+        mRootListData[0] = new ObjectItem(1,"目录");
+        mRootListData[1] = new ObjectItem(2,"列表");
     }
 
     private void findViews()
     {
-        mBookWebview = (WebView)findViewById(R.id.bookWebview);
-        mBookWebview.loadUrl("file:///android_asset/55PUF6850/Connect_your_TV/Connect_antenna/description.html");
+
         mDivider1 = (ImageView)findViewById(R.id.bookDividerOne);
         mDivider2 = (ImageView)findViewById(R.id.bookDividerTwo);
         mButton1 = (Button)findViewById(R.id.button1);
         mButton1.setOnClickListener(buttonClickListener);
         mButton2 = (Button)findViewById(R.id.button2);
         mButton2.setOnClickListener(buttonClickListener);
+
+        mRootList = (ListView) findViewById(R.id.root_list);
+        mRootListAdapter = new ArrayAdapterItem(this,R.layout.list_view_row_item, mRootListData);
+        mRootList.setAdapter(mRootListAdapter);
+
+
+        mListBook1 = (ListView) findViewById(R.id.listBookLevelOne);
+        mLevelOneAdapter = new ArrayAdapterItem(this,R.layout.list_view_row_item, mListBook1Data);
+        mListBook1.setAdapter(mLevelOneAdapter);
+
+        mListBook2 = (ListView) findViewById(R.id.listBookLevelTwo);
+        mLevelTwoAdapter = new ArrayAdapterItem(this,R.layout.list_view_row_item, mListBook2Data);
+        mListBook2.setAdapter(mLevelTwoAdapter);
+
+        mBookWebview = (WebView)findViewById(R.id.bookWebview);
+        mBookWebview.loadUrl("file:///android_asset/55PUF6850/Connect_your_TV/Connect_antenna/description.html");
+
+      //  mListBook2 = (ListView) findViewById(R.id.listBookLevelTwo);
+//        mLevelTwoAdapter = new XmicListItemAdapter(this, R.layout.list_item, itemBooks);
+
+       // mLevelTwoAdapter.setItems(itemBooks);
+       // mListBook2.setAdapter(mLevelTwoAdapter);
     }
 
 
     private void initAnimation()
     {
-        this.mPatOneToTwoAni = new TranslateAnimation(0.0F, -514.0F, 0.0F, 0.0F);
-        this.mPatOneToTwoAni.setDuration(500L);
+        this.mPatOneToTwoAni = new TranslateAnimation(0.0F, ANIMATION_RIGHT, 0.0F, 0.0F);
+        this.mPatOneToTwoAni.setDuration(ANIMATION_DURATION);
         //this.mPatOneToTwoAni.setAnimationListener(this.mPatOneToTwoAniListener);
-        this.mPatTwoToOneAni = new TranslateAnimation(0.0F, 514.0F, 0.0F, 0.0F);
-        this.mPatTwoToOneAni.setDuration(500L);
+        this.mPatTwoToOneAni = new TranslateAnimation(0.0F, ANIMATION_LEFT, 0.0F, 0.0F);
+        this.mPatTwoToOneAni.setDuration(ANIMATION_DURATION);
         //this.mPatTwoToOneAni.setAnimationListener(this.mPatTwoToOneAniListener);
-        this.mPatTwoToThreeAni = new TranslateAnimation(0.0F, -532.0F, 0.0F, 0.0F);
-        this.mPatTwoToThreeAni.setDuration(500L);
+        this.mPatTwoToThreeAni = new TranslateAnimation(0.0F, ANIMATION_LEFT, 0.0F, 0.0F);
+        this.mPatTwoToThreeAni.setDuration(ANIMATION_DURATION);
         this.mPatTwoToThreeAni.setAnimationListener(mPatTwoToThreeAniListener);
-        this.mPatThreeToTwoAni = new TranslateAnimation(0.0F, 532.0F, 0.0F, 0.0F);
-        this.mPatThreeToTwoAni.setDuration(500L);
+        this.mPatThreeToTwoAni = new TranslateAnimation(0.0F, ANIMATION_RIGHT,0.0F, 0.0F);
+        this.mPatThreeToTwoAni.setDuration(ANIMATION_DURATION);
         this.mPatThreeToTwoAni.setAnimationListener(mPatThreeToTwoAniListener);
     }
 
@@ -181,26 +283,28 @@ public class MainActivity extends AppCompatActivity {
 //        this.mPatOneLevelOneParams.leftMargin = 538;
 
 
-        this.mPatTwoDeviderOneParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.mPatTwoDeviderOneParams.leftMargin = 108;
-//        this.mPatTwoLevelOneParams = new RelativeLayout.LayoutParams(370, Constants.lvDisplayHeight);
-//        this.mPatTwoLevelOneParams.leftMargin = 124;
-        this.mPatTwoDeviderTwoParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.mPatTwoDeviderTwoParams.leftMargin = 606;
-//        this.mPatTwoLevelTwoParams = new RelativeLayout.LayoutParams(316, Constants.lvDisplayHeight);
-//        this.mPatTwoLevelTwoParams.leftMargin = 624;
-        this.mPatTwoWebConParams = new RelativeLayout.LayoutParams(1134, 640);
-        this.mPatTwoWebConParams.leftMargin = 1226;
+        mPatTwoDeviderOneParams = new RelativeLayout.LayoutParams(-1,-1);
+        mPatTwoDeviderOneParams.leftMargin = PAT2_DIVIDER1_LEFT_MARGIN;
+        mPatTwoLevelOneParams = new RelativeLayout.LayoutParams(370, Constants.lvDisplayHeight);
+        mPatTwoLevelOneParams.leftMargin = PAT2_LISTBOOK1_LEFT_MARGIN;
+        mPatTwoDeviderTwoParams = new RelativeLayout.LayoutParams(-1, -1);
+        mPatTwoDeviderTwoParams.leftMargin = PAT2_DIVIDER2_LEFT_MARGIN;
+        mPatTwoLevelTwoParams = new RelativeLayout.LayoutParams(316, Constants.lvDisplayHeight);
+        mPatTwoLevelTwoParams.leftMargin = PAT2_LISTBOOK2_LEFT_MARGIN;
+        mPatTwoWebConParams = new RelativeLayout.LayoutParams(1134, 640);
+        mPatTwoWebConParams.leftMargin = PAT2_WEBVIEW_LEFT_MARGIN;
 
 
-        this.mPatThreeDeviderOneParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.mPatThreeDeviderOneParams.leftMargin = 646;
-//        this.mPatThreeLevelTwoParams = new RelativeLayout.LayoutParams(316, Constants.lvDisplayHeight);
-//        this.mPatThreeLevelTwoParams.leftMargin = 192;
-        this.mPatThreeDeviderTwoParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.mPatThreeDeviderTwoParams.leftMargin = 604;
-        this.mPatThreeWebConParams = new RelativeLayout.LayoutParams(1134, 640);
-        this.mPatThreeWebConParams.leftMargin = 506;
+        mPatThreeDeviderOneParams = new RelativeLayout.LayoutParams(-1, -1);
+        mPatThreeDeviderOneParams.leftMargin = PAT3_DIVIDER1_LEFT_MARGIN;
+        mPatThreeLevelOneParams = new RelativeLayout.LayoutParams(370, Constants.lvDisplayHeight);
+        mPatThreeLevelOneParams.leftMargin = PAT3_LISTBOOK1_LEFT_MARGIN;
+        mPatThreeLevelTwoParams = new RelativeLayout.LayoutParams(316, Constants.lvDisplayHeight);
+        mPatThreeLevelTwoParams.leftMargin = PAT3_LISTBOOK2_LEFT_MARGIN;
+        mPatThreeDeviderTwoParams = new RelativeLayout.LayoutParams(-1, -1);
+        mPatThreeDeviderTwoParams.leftMargin = PAT3_DIVIDER2_LEFT_MARGIN;
+        mPatThreeWebConParams = new RelativeLayout.LayoutParams(1134, 640);
+        mPatThreeWebConParams.leftMargin = PAT3_WEBVIEW_LEFT_MARGIN;
     }
 
 }

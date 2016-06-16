@@ -2,6 +2,8 @@ package com.example.tony.testwebview.tools;
 
 public class Constants
 {
+
+
   private static final float PX_PER_DP = 2.0F;
   public static int bookWebViewIndex;
   public static int gridViewIndex;
