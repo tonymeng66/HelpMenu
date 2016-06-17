@@ -65,6 +65,15 @@
         android:divider="@null"
         android:dividerHeight="@dimen/list_divider_height" />
 
+    <ImageView
+        android:id="@+id/bookDividerThree"
+        android:layout_width="2.0dip"
+        android:layout_height="368.0dip"
+        android:layout_marginLeft="@dimen/divider3_marginLeft"
+        android:layout_marginTop="0.0dip"
+        android:visibility="invisible"
+        android:src="@drawable/divider" />
+
     <WebView
         android:id="@+id/bookWebview"
         android:focusable="false"
@@ -74,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/webView_marginLeft"
         android:layout_marginTop="@dimen/list_margintop"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:layerType="software" />
     <Button
         android:id="@+id/button1"

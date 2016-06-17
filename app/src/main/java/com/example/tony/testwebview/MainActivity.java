@@ -1,5 +1,7 @@
 package com.example.tony.testwebview;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private WebView mBookWebview;
     private ImageView mDivider1;
     private ImageView mDivider2;
+    private ImageView mDivider3;
     private Button mButton1;
     private Button mButton2;
     private ListView mRootList;
@@ -65,22 +68,69 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button1:
-                    mRootList.startAnimation(mPatTwoToThreeAni);
-                    mDivider1.startAnimation(mPatTwoToThreeAni);
-                    mDivider2.startAnimation(mPatTwoToThreeAni);
-                    mListBook1.startAnimation(mPatTwoToThreeAni);
-                    mListBook2.startAnimation(mPatTwoToThreeAni);
-                    mDivider2.startAnimation(mPatTwoToThreeAni);
-                    mBookWebview.startAnimation(mPatTwoToThreeAni);
+
+                    AnimatorSet set1 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_rootlist);
+                    set1.setTarget(mRootList);
+                    set1.start();
+
+                    AnimatorSet set2 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_divider1);
+                    set2.setTarget(mDivider1);
+                    set2.start();
+
+                    AnimatorSet set3 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_divider2);
+                    set3.setTarget(mDivider2);
+                    set3.start();
+
+                    AnimatorSet set4 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_divider3);
+                    set4.setTarget(mDivider3);
+                    set4.start();
+
+                    AnimatorSet set5 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_mlistbook1);
+                    set5.setTarget(mListBook1);
+                    set5.start();
+//
+                    AnimatorSet set6 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_mlistbook2);
+                    set6.setTarget(mListBook2);
+                    set6.start();
+//
+                    AnimatorSet set7 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat2to3_webview);
+                    set7.setTarget(mBookWebview);
+                    set7.start();
+
+                    mBookWebview.setVisibility(View.VISIBLE);
+                    mDivider3.setVisibility(View.VISIBLE);
+
+
                     break;
                 case R.id.button2:
-                    mRootList.startAnimation(mPatThreeToTwoAni);
-                    mDivider1.startAnimation(mPatThreeToTwoAni);
-                    mDivider2.startAnimation(mPatThreeToTwoAni);
-                    mListBook1.startAnimation(mPatThreeToTwoAni);
-                    mListBook2.startAnimation(mPatThreeToTwoAni);
-                    mDivider2.startAnimation(mPatThreeToTwoAni);
-                    mBookWebview.startAnimation(mPatThreeToTwoAni);
+                    AnimatorSet set8 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_rootlist);
+                    set8.setTarget(mRootList);
+                    set8.start();
+
+                    AnimatorSet set9 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_divider1);
+                    set9.setTarget(mDivider1);
+                    set9.start();
+
+                    AnimatorSet set10 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_divider2);
+                    set10.setTarget(mDivider2);
+                    set10.start();
+
+                    AnimatorSet set11 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_divider3);
+                    set11.setTarget(mDivider3);
+                    set11.start();
+//
+                    AnimatorSet set12 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_mlistbook1);
+                    set12.setTarget(mListBook1);
+                    set12.start();
+//
+                    AnimatorSet set13 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_mlistbook2);
+                    set13.setTarget(mListBook2);
+                    set13.start();
+//
+                    AnimatorSet set14 = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.pat3to2_webview);
+                    set14.setTarget(mBookWebview);
+                    set14.start();
+
                     break;
                 default:
                     break;
@@ -98,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
     {
         public void onAnimationEnd(Animation paramAnimation)
         {
+
 //            HelpActivity.this.listBookLevelOneName.setVisibility(0);
 //            int i;
 //            if (HelpActivity.this.bookLists.size() > HelpActivity.this.lBookOneSelectedPosition)
@@ -147,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
             //mListBook1.requestFocus();
             mListBook1.setLayoutParams(mPatTwoLevelOneParams);
             mListBook2.setLayoutParams(mPatTwoLevelTwoParams);
-
-//            HelpActivity.this.mListBook2.setLayoutParams(HelpActivity.this.mPatTwoLevelTwoParams);
+//
+////            HelpActivity.this.mListBook2.setLayoutParams(HelpActivity.this.mPatTwoLevelTwoParams);
             mBookWebview.setVisibility(View.GONE);
             mBookWebview.setLayoutParams(mPatTwoWebConParams);
 //            HelpActivity.this.mWebViewScrollbarBg.setVisibility(4);
@@ -191,7 +242,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initAnimation();
+
+        //initAnimation();
         initComponetLp();
         makeFakeData();
         findViews();
@@ -230,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDivider1 = (ImageView)findViewById(R.id.bookDividerOne);
         mDivider2 = (ImageView)findViewById(R.id.bookDividerTwo);
+        mDivider3 = (ImageView)findViewById(R.id.bookDividerThree);
         mButton1 = (Button)findViewById(R.id.button1);
         mButton1.setOnClickListener(buttonClickListener);
         mButton2 = (Button)findViewById(R.id.button2);
