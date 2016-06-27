@@ -302,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
         mListBook2.setAdapter(mLevelTwoAdapter);
 
         mBookWebview = (WebView)findViewById(R.id.bookWebview);
+        mBookWebview.setBackgroundColor(0);
         mBookWebview.loadUrl("file:///android_asset/55PUF6850/Connect_your_TV/Connect_antenna/description.html");
 
       //  mListBook2 = (ListView) findViewById(R.id.listBookLevelTwo);
