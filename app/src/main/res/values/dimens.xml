@@ -4,8 +4,8 @@
     <dimen name="list_book1_marginLeft">57dp</dimen>
     <dimen name="divider2_marginLeft">380dp</dimen>
     <dimen name="list_book2_marginLeft">383dp</dimen>
-    <dimen name="divider3_marginLeft">380dp</dimen>
-   <dimen name="webView_marginLeft">385dp</dimen>
+    <dimen name="divider3_marginLeft">810dp</dimen>
+   <dimen name="webView_marginLeft">820dp</dimen>
 
 
     <!-- Default screen margins, per the Android Design guidelines. -->
